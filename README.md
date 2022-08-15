@@ -1,10 +1,10 @@
 # Zebra-Beautify
 
-The Blue Alliance API is one of the most helpful APIs for scouting. However, its Zebra MotionWorks data is pretty hard to use. Apart from being in a format that doesn't meet the needs of most software for scouting, the lists also contain null values that can cause errors in the code. So to use Zebra MotionWorks data in my code, I created a class that solved these two issues. Using it to retrieve data from TBA will make scouting a little easier and save a lot of time.
+The Blue Alliance API is one of the most helpful APIs for scouting. However, its Zebra MotionWorks data is pretty hard to use. Apart from being in a format that doesn't meet the needs of most applications for scouting, the lists also contain null values that can cause errors in the code. So to use Zebra MotionWorks data in my code, I created a class that solved these two issues. Using it to retrieve data from TBA will make scouting a little easier and save a lot of time.
 
 ## Setup
 
-First, install Requests by typing in the following command in your command prompts.
+First, install Requests by typing the following command in your command prompt.
 
 ```
 pip install requests
@@ -30,7 +30,7 @@ Then call the **get_match_zebra()** function and pass the match key as a paramet
 data = data_extractor.get_match_zebra("match_key")
 ```
 
-Some past Zebra MotionWorks data on TBA is missing a lot of coordinates from the start of the match. By default, the algorithm ignores any data where the first 10 coordinate pairs are missing(the first pair on 1.0 second). But you can change the maximum number of deciseconds missing for data to still be accepted.
+Some past Zebra MotionWorks data on TBA is missing a lot of coordinates from the start of the match. By default, the algorithm ignores any data where the first 10 coordinate pairs are missing(the first pair on 1.0 second or later). But you can change the maximum number of coordinate pairs missing for data to still be accepted.
 
 For example, let's say you can tolerate the first 50 coordinate pairs missing.
 
@@ -86,7 +86,7 @@ To get the data for an event, you will need to call the function **get_event_zeb
 data = data_extractor.get_event_zebra("your_event")
 ```
 
-Some past Zebra MotionWorks data on TBA is missing a lot of coordinates from the start of the match. By default, the algorithm ignores any data where the first 10 coordinate pairs are missing(the first pair on 1.0 second). But you can change the maximum number of deciseconds missing for data to still be accepted.
+Some past Zebra MotionWorks data on TBA is missing a lot of coordinates from the start of the match. By default, the algorithm ignores any data where the first 10 coordinate pairs are missing(the first pair on 1.0 second or later). But you can change the maximum number of coordinate pairs missing for data to still be accepted.
 
 For example, let's say you can tolerate the first 50 coordinate pairs missing.
 
