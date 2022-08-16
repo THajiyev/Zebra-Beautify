@@ -62,7 +62,7 @@ The <em>alliance</em> will be set to the color of the alliance. It helps map the
 <em>y</em> is the list of all y-coordinates.
 
 ```
-Note: The max_data_loss will also be equal to the latest potential starting_time in your data set.
+Note: The max_data_loss will also be equal to the latest potential starting_time(converted to deciseconds) in your data set.
 ```
 
 If this data gets put in a JSON file, it will look like this:
@@ -155,7 +155,7 @@ The <em>alliance</em> will be set to the color of the alliance. It helps map the
 <em>y</em> is the list of all y-coordinates.
 
 ```
-Note: The max_data_loss will also be equal to the latest potential starting_time in your data set.
+Note: The max_data_loss will also be equal to the latest potential starting_time(converted to deciseconds) in your data set.
 ```
 
 If that data is dumped into a JSON file, the format will look like this:
