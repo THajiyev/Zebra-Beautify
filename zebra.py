@@ -29,7 +29,7 @@ class Zebra:
             return False, []
         return True, data
     
-    def get_match_data(self, match_key, max_data_loss):
+    def get_raw_data(self, match_key, max_data_loss):
         data = {}
         alliances = ['red', 'blue']
         success, match_data = self.get_tba_data(match_key)
@@ -55,7 +55,7 @@ class Zebra:
         matches = requests.get(url='https://www.thebluealliance.com/api/v3/event/'+event+'/matches/keys', headers=self.headers).json() 
         with concurrent.futures.ThreadPoolExecutor() as executor:
             for match_key in matches:
-                thread = executor.submit(self.get_match_data, match_key, max_data_loss)
+                thread = executor.submit(self.get_raw_data, match_key, max_data_loss)
                 threads.append(thread)
         for thread in threads:
             match_key, new_data = thread.result()
@@ -69,6 +69,6 @@ class Zebra:
         return data
     
     def get_match_zebra(self, match_key, max_data_loss=10):
-        _, match_data = self.get_match_data(match_key, max_data_loss)
+        _, match_data = self.get_raw_data(match_key, max_data_loss)
         return match_data
     
