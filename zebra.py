@@ -34,7 +34,7 @@ class Zebra:
         alliances = ['red', 'blue']
         success, match_data = self.get_tba_data(match_key)
         if not success:
-            return data
+            return match_key, data
         if match_data!=[]:
             times = match_data["times"]
             for color in alliances:
