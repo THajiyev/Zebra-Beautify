@@ -14,11 +14,11 @@ class Zebra:
 
     # Output: competition level, match number
     def get_info(self, event, match_key):
-        #match keys for qualification matches have a different format
-        if match_key.startswith(event+"_qm"):
-            return ("qm", match_key[len(event+"_qm"):])
+        level = re.sub(r'\d', ' ', match_key[len(event)+1:]).split(" ")[0]
+        if level!="sf":
+            return (level, match_key[match_key.rindex("m")+1:])
         else:
-            return (re.sub(r'\d', ' ', match_key[len(event)+1:]).split(" ")[0], match_key[match_key.rindex("m")+1:])
+            return (level, re.findall(r'\d+', match_key[len(event)+1:])[0])
     
     # Output: success, match_data
     def get_tba_data(self, match_key):
